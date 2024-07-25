@@ -51,13 +51,20 @@ void write_binary_file(City cities[], int size, char* filename){
 }
 
 void print_from_binary(char* filename) {
-    ifstream stream(filename, ios::out | ios::binary);
+    //Open input file stream
+    ifstream stream(filename, ios::binary);
+    //Check if it was successful
     if(stream.fail()){
         cerr << "failed to open file: " << filename << endl;
         exit(1);
     }
-    for(int i =0; i < size; i++)
-        stream.read((char*)&cities[i], sizeof(City));
+    //Create temporary City variable
+    City city;
+    
+    for(int i =0; i < size; i++){
+        stream.read((char*) &city, sizeof(City));
+        cout << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
+    }
     stream.close();
 }
 
