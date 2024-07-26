@@ -77,8 +77,24 @@ int main(void)
     return 0;
 }
 
-void insertion_sort(const char** str_array, int n){
-    
+//Overriden function
+void insertion_sort(const char** str_array, int n) {
+    int i;
+    int j;
+    const char* value_to_insert;
+
+    for (i = 1; i < n; i++){
+        value_to_insert = str_array[i];
+
+        /* Shift values greater than value_to_insert. */
+        j = i;
+        while(j > 0 && strcmp(str_array[j - 1], value_to_insert) > 0) {
+            str_array[j] = str_array[j - 1];
+            j--;
+        }
+
+        str_array[j] = value_to_insert;
+    }
 }
 
 void insertion_sort(int *a, int n)

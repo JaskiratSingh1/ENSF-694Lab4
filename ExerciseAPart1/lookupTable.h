@@ -110,7 +110,7 @@ public:
     // PROMISES: size() == 0.
     
     void display()const;
-    // PROMISES: displays the values o
+    // PROMISES: displays the values of the node that the cursor is pointing to
     bool isEmpty()const;
     // PROMISES: returns true is list is empty
     

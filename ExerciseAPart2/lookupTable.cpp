@@ -210,14 +210,8 @@ void LookupTable::make_empty() {
 void LookupTable::display() const {
     //If table is empty exit the function
     if(isEmpty()) return;
-    //Create iterator element pointing to head
-    LT_Node* node = headM;
-    
-    //Go through each node and print its contents
-    while(node != nullptr){
-        cout << node->pairM.key << " " << node->pairM.datum.get_label() << endl;
-        node = node->nextM;
-    }
+    //Print the node that the cursor is pointing to
+    cout << cursorM->pairM.key << " " << cursorM->pairM.datum.get_label() << endl;
 }
 
 // Check if the table is empty

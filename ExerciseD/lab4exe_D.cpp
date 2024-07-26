@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
     cout << "\n\nThe values in matrix m1 are:\n\n";
     print(m1);
     
-#if 0
+#if 1
     Matrix m2 (4, 6);
     populate_matrix(m2, 6);
 
