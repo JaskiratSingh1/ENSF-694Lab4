@@ -1,9 +1,9 @@
-//
-//  lookupTable.cpp
-//  ExerciseAPart1
-//
-//  Created by Jaskirat Singh on 2024-07-19.
-//
+/*
+ *  lookupTable.cpp
+ *  ENSF 694 Lab 4, exercise A part 1
+ *  Completed by: Jaskirat Singh
+ *  Submission date: July 26
+ */
 
 #include "lookupTable.h"
 
@@ -19,7 +19,7 @@ LookupTable::LookupTable() : sizeM(0), cursorM(nullptr), headM(nullptr){
 
 //Copy constructor
 LookupTable::LookupTable(const LookupTable &source){
-    //COPY FUNC TO SIMPLIFY CODE
+    //Copy func
     copy(source);
 }
 
@@ -275,7 +275,7 @@ void LookupTable::copy(const LookupTable& source) {
     LT_Node* current = headM;
     LT_Node* sourceCurrent = source.headM->nextM;
 
-    while (sourceCurrent != nullptr) {
+    while(sourceCurrent != nullptr) {
         current->nextM = new LT_Node(sourceCurrent->pairM, nullptr);
         current = current->nextM;
         sourceCurrent = sourceCurrent->nextM;

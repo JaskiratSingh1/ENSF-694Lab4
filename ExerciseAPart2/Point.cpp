@@ -1,9 +1,9 @@
-//
-//  Point.cpp
-//  ExerciseAPart2
-//
-//  Created by Jaskirat Singh on 2024-07-25.
-//
+/*
+ *  Point.cpp
+ *  ENSF 694 Lab 4, exercise A part 2
+ *  Completed by: Jaskirat Singh
+ *  Submission date: July 26
+ */
 
 #include "Point.h"
 
@@ -31,22 +31,23 @@ Point::Point(const Point& src): x(src.x), y(src.y) {
 
 //Assignment operator
 Point& Point::operator=(const Point& rhs) {
-    //Self-assignment
+    //Self assignment
     if(this == &rhs){
         return *this;
     }
 
     //Deallocate label
     delete[] label;
+    
+    //Allocate memory for label
+    label = new char[strlen(rhs.label) + 1];
+    
+    //Copy label
+    strcpy(label, rhs.label);
 
     //Copy x and y
     x = rhs.x;
     y = rhs.y;
-
-    //Allocate memory for label
-    label = new char[strlen(rhs.label) + 1];
-    //Copy label
-    strcpy(label, rhs.label);
 
     return *this;
 }

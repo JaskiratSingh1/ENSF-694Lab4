@@ -1,4 +1,10 @@
-// ENSF 694 - Lab 4 Exercise C
+/*
+ *  lab4exe_C.cpp
+ *  ENSF 694 Lab 4, exercise C
+ *  Completed by: Jaskirat Singh
+ *  Submission date: July 26
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -92,7 +98,7 @@ void insertion_sort(const char** str_array, int n) {
             str_array[j] = str_array[j - 1];
             j--;
         }
-
+        //Insert Value
         str_array[j] = value_to_insert;
     }
 }

@@ -1,4 +1,10 @@
-//  ENSF 694 lab 4 Spring 2024 - Exercise B
+/*
+ *  lab4exe_B.cpp
+ *  ENSF 694 Lab 4, exercise B
+ *  Completed by: Jaskirat Singh
+ *  Submission date: July 26
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -45,14 +51,14 @@ void write_binary_file(City cities[], int size, char* filename){
         exit(1);
     }
     
-    for(int i =0; i < size; i++)
+    for(int i = 0; i < size; i++)
         stream.write((char*)&cities[i], sizeof(City));
     stream.close();
 }
 
 void print_from_binary(char* filename) {
     //Open input file stream
-    ifstream stream(filename, ios::binary);
+    ifstream stream(filename, ios::in | ios::binary);
     //Check if it was successful
     if(stream.fail()){
         cerr << "failed to open file: " << filename << endl;
@@ -61,12 +67,24 @@ void print_from_binary(char* filename) {
     //Create temporary City variable
     City city;
     
-    for(int i =0; i < size; i++){
+    //Read all the lines
+    for(int i = 0; i < size; i++){
         stream.read((char*) &city, sizeof(City));
         cout << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
     }
+    
+    //Better implementation would be to loop until EOF, but since const size is provided
+    //and used in the write function, my implementation shall also use const size
+    /*
+    while(!stream.eof()){
+        stream.read((char*) &city, sizeof(City));
+        cout << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
+    }
+    
+    if (!stream.eof()){
+        cerr << "Error reading from file: " << filename << endl;
+    }
+    */
+    
     stream.close();
 }
-
-
-

@@ -1,4 +1,9 @@
-//  matrix.cpp
+/*
+ *  matrix.cpp
+ *  ENSF 694 Lab 4, exercise D
+ *  Completed by: Jaskirat Singh
+ *  Submission date: July 26
+ */
 
 
 #include "matrix.h"
@@ -139,11 +144,14 @@ void Matrix::destroy()
 {
     //cout << "\nProgram ended without destroying matrices.\n";
     
-    delete sum_rowsM;
-    delete sum_colsM;
+    //Delete array of doubles
+    delete[] sum_rowsM;
+    delete[] sum_colsM;
     
+    //Delete each array of pointers
     for(int i = 0; i < rowsM; i++){
-        delete matrixM[i];
+        delete[] matrixM[i];
     }
-    delete matrixM;
+    //Delete matrix
+    delete[] matrixM;
 }

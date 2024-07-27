@@ -1,9 +1,9 @@
-//
-//  lookupTable.cpp
-//  ExerciseAPart1
-//
-//  Created by Jaskirat Singh on 2024-07-19.
-//
+/*
+ *  lookupTable.cpp
+ *  ENSF 694 Lab 4, exercise A part 2
+ *  Completed by: Jaskirat Singh
+ *  Submission date: July 26
+ */
 
 #include "lookupTable.h"
 
